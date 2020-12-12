@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Quicktrade
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,8 +13,54 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <ion-input placeholder="Nombre"></ion-input>
+  <ion-input placeholder="Descripcion"></ion-input>
+  <ion-input placeholder="Precio"></ion-input>
+  <h2>Categorias</h2>
+  <ion-chip (click)="cambiar_oculto1()">
+    <ion-icon name="car"  color="dark"></ion-icon>
+    <ion-label>{{titulo1}}</ion-label>
+  </ion-chip>
+  <ion-chip (click)="cambiar_oculto2()">
+    <ion-icon name="home" color="dark"></ion-icon>
+    <ion-label>{{titulo2}}</ion-label>
+  </ion-chip>
+  <ion-chip (click)="cambiar_oculto3()">
+    <ion-icon name="settings" color="dark"></ion-icon>
+    <ion-label>{{titulo3}}</ion-label>
+  </ion-chip>
+  <ion-chip (click)="cambiar_oculto4()">
+    <ion-icon name="home"  color="dark"></ion-icon>
+    <ion-label>{{titulo4}}</ion-label>
+  </ion-chip>
+
+  <div *ngIf="oculto1==true"> 
+    <ion-item>
+    <ion-label>Vehiculo</ion-label>
+    <ion-select interface="popover">
+      <ion-select-option value="coche">Coche</ion-select-option>
+      <ion-select-option value="moto">Moto</ion-select-option>      
+    </ion-select>
+  </ion-item>
+    <ion-input placeholder="Kilometros"></ion-input>
+    <ion-input placeholder="Años"></ion-input>
   </div>
+
+  <div *ngIf="oculto2==true">
+    <ion-input placeholder="Numero habitaciones y baños"></ion-input>
+    <ion-input placeholder="Localidad"></ion-input>
+  </div>
+
+  <div>
+    <ion-item *ngIf="oculto3==true">
+      <ion-label>Estado</ion-label>
+      <ion-select interface="popover">
+        <ion-select-option value="perfecto">Perfecto estado</ion-select-option>
+        <ion-select-option value="usado">Usado</ion-select-option>      
+      </ion-select>
+    </ion-item>
+  </div>
+  <section>    
+    <ion-button expand="block">Enviar Informacion</ion-button>
+  </section>
 </ion-content>
