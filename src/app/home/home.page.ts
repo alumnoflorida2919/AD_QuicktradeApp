@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Iarticulo } from '../interfaces';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +15,7 @@ export class HomePage {
   oculto1: boolean=false;
   oculto2: boolean=false;
   oculto3: boolean=false;
-  constructor() {}
+  
   cambiar_oculto1(){
     this.oculto1=true;
     this.oculto2=false;
@@ -35,4 +37,43 @@ export class HomePage {
     this.oculto3=false;
   }
 
+  articulos: Iarticulo[]=[
+    {
+      "nombre":"camion",
+      "descripcion":"vehiculo 4 ruedas",
+      "precio": 12000
+    },
+    {
+      "nombre":"chalet",
+      "descripcion":"casa en parcela",
+      "precio": 280000
+    },
+
+  ];
+
+  constructor(private _toastCtrl: ToastController){}
+
+  async presentToast() {
+    const toast = await this._toastCtrl.create({
+      message: 'Se ha insertado el articulo correctamente.',
+      duration: 2000,
+      position:'bottom'
+    });
+    toast.present();
+  }
+
+  insertar(){
+    let articulo : Iarticulo={
+      "nombre":this.nombre,
+      "descripcion":this.descripcion,
+      "precio": this.precio
+    };
+    this.articulos.push(articulo);
+    /*this.articulos.push({
+      "nombre":this.nombre,
+      "descripcion":this.descripcion,
+      "precio": this.precio,      
+    })*/
+    this.presentToast();
+  }
 }

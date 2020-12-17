@@ -13,9 +13,9 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-input placeholder="Nombre"></ion-input>
-  <ion-input placeholder="Descripcion"></ion-input>
-  <ion-input placeholder="Precio"></ion-input>
+  <ion-input placeholder="Nombre" [(ngModel)]="nombre"></ion-input>
+  <ion-textarea placeholder="Descripcion" [(ngModel)]="descripcion"></ion-textarea>
+  <ion-input placeholder="Precio" [(ngModel)]="precio"></ion-input>
   <h2>Categorias</h2>
   <ion-chip (click)="cambiar_oculto1()">
     <ion-icon name="car"  color="dark"></ion-icon>
@@ -59,8 +59,14 @@
         <ion-select-option value="usado">Usado</ion-select-option>      
       </ion-select>
     </ion-item>
-  </div>
+  </div>  
+  <ion-card *ngFor="let item of articulos">
+    <IonLabel>Articulo: {{item.nombre}}</IonLabel><br>
+    <IonLabel>Descripcion: {{item.descripcion}}</IonLabel><br>
+    <IonLabel>Precio: {{item.precio}} €</IonLabel><br>
+  </ion-card>  
+  
   <section>    
-    <ion-button expand="block">Enviar Informacion</ion-button>
+    <ion-button expand="block" (click)="insertar()">Enviar Informacion</ion-button>
   </section>
 </ion-content>
