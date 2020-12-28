@@ -10,7 +10,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },   {
+    path: 'insert',
+    loadChildren: () => import('./insert/insert.module').then( m => m.InsertPageModule)
   },
+
 ];
 
 @NgModule({

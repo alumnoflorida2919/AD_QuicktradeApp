@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Iarticulo } from '../interfaces';
 import { ToastController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-insert',
+  templateUrl: './insert.page.html',
+  styleUrls: ['./insert.page.scss'],
 })
-export class HomePage {
+export class InsertPage implements OnInit {
   titulo1: string="Motor";
   titulo2: string="Inmobiliarias";
   titulo3: string="Tecnologia";
@@ -79,4 +79,8 @@ export class HomePage {
     })*/
     this.presentToast();
   }
+
+  ngOnInit() {
+  }
+
 }
