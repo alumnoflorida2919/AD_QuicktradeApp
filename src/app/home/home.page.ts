@@ -14,7 +14,7 @@ export class HomePage {
   titulo4: string="Hogar";
   oculto1: boolean=false;
   oculto2: boolean=false;
-  oculto3: boolean=false;
+  oculto3: boolean=false;  
   nombre: string;
   descripcion: string;
   precio: number;
@@ -40,19 +40,7 @@ export class HomePage {
     this.oculto3=false;
   }
 
-  articulos: Iarticulo[]=[
-    {
-      "nombre":"camion",
-      "descripcion":"vehiculo 4 ruedas",
-      "precio": 12000
-    },
-    {
-      "nombre":"chalet",
-      "descripcion":"casa en parcela",
-      "precio": 280000
-    },
-
-  ];
+  articulos: Iarticulo[];
 
   constructor(private _toastCtrl: ToastController){}
 
@@ -67,6 +55,7 @@ export class HomePage {
 
   insertar(){
     let articulo : Iarticulo={
+      
       "nombre":this.nombre,
       "descripcion":this.descripcion,
       "precio": this.precio

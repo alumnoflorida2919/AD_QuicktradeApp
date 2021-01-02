@@ -7,9 +7,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <section>    
-    <ion-button size="large" color="danger">Insertar producto</ion-button>
-    <ion-button size="large" color="warning">Listado producto</ion-button>
-    <ion-button expand="block" (click)="insertar()">Enviar Informacion</ion-button>
+  <section>
+    <ion-button routerLink="/insert" routerDirection="forward" size="large" color="danger">Insertar producto
+    </ion-button>
+    <ion-button routerLink="/list" routerDirection="forward" size="large" color="warning">Listado producto</ion-button>
   </section>
 </ion-content>
