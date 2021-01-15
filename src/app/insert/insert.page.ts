@@ -49,25 +49,17 @@ export class InsertPage implements OnInit {
     this.oculto2 = false;
     this.oculto3 = false;
   }
-  // selectMotor(stateMotor) {
-  //   if (stateMotor == "coche") {
-  //     this.vehiculo == "coche";
-  //   }
-  //   if (stateMotor == "moto") {
-  //     this.vehiculo == "moto";
-  //   }
-  // }
   articulos: (Iarticulo | Imotor | Iinmobiliaria | Itecnologia)[] = [
-    {
-      "nombre": "camion",
-      "descripcion": "vehiculo 4 ruedas",
-      "precio": 12000
-    },
-    {
-      "nombre": "chalet",
-      "descripcion": "casa en parcela",
-      "precio": 280000
-    },
+    // {
+    //   "nombre": "camion",
+    //   "descripcion": "vehiculo 4 ruedas",
+    //   "precio": 12000
+    // },
+    // {
+    //   "nombre": "chalet",
+    //   "descripcion": "casa en parcela",
+    //   "precio": 280000
+    // },
 
   ];
 
@@ -87,7 +79,7 @@ export class InsertPage implements OnInit {
       "nombre": this.nombre,
       "descripcion": this.descripcion,
       "precio": this.precio,
-      "vehiculo": 'true',//this.stateMotor
+      "vehiculo": this.stateMotor,
       "kilometros": this.kilometros,
       "anyos": this.anyos
     };
@@ -111,7 +103,7 @@ export class InsertPage implements OnInit {
       "nombre": this.nombre,
       "descripcion": this.descripcion,
       "precio": this.precio,
-      "estado": 'true'//this.stateEstado
+      "estado": this.stateEstado
     };
     this._articuloService.setTecnologia(tecnologia);
     this.presentToast();

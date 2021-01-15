@@ -1,52 +1,65 @@
-import { Injectable } from "@angular/core";
-import { AngularFireDatabase } from "@angular/fire/database";
-import { Iarticulo, Iinmobiliaria, Imotor, Itecnologia } from "../interfaces";
+import {Injectable} from '@angular/core';
+import {AngularFireDatabase} from '@angular/fire/database';
+import {Iinmobiliaria, Imotor, Itecnologia} from '../interfaces';
 
 
 @Injectable()
 
 export class ArticuloService {
-  /*articulos: Iarticulo[]= [
-      {
-         
-        "nombre":"camion",
-        "descripcion":"vehiculo 4 ruedas",
-        "precio": 12000
-      },
-      {
-        
-        "nombre":"chalet",
-        "descripcion":"casa en parcela",
-        "precio": 280000
-      },
-  
-    ]*/
-  constructor(private _db: AngularFireDatabase) {
+    // articulos: (Iarticulo|Imotor|Iinmobiliaria|Itecnologia)[]= [
+    //     {
 
-  }
+    //       "nombre":"camion",
+    //       "descripcion":"vehiculo 4 ruedas",
+    //       "precio": 12000
+    //     },
+    //     {
+
+    //       "nombre":"chalet",
+    //       "descripcion":"casa en parcela",
+    //       "precio": 280000
+    //     },
+
+    //   ]
+    constructor(private _db: AngularFireDatabase) {
+
+    }
 
 
-  /*getArticulos(): Iarticulo[]{
-      return this.articulos;
-  }
-  getArticuloName(name:string):(Iarticulo){
-    return this.articulos.find(x=>x.nombre === name);
-  }*/
+    getMotor(): firebase.default.database.Reference {
+        let ref = this._db.database.ref('articulos/motor');
+        return ref;
+    }
+    getInmobiliaria():firebase.default.database.Reference{
+        let ref = this._db.database.ref('articulos/inmobiliaria');
+        return ref;
+    }
+    getTecnologia():firebase.default.database.Reference{
+        let ref = this._db.database.ref('articulos/tecnologia');
+        return ref;
+    }
 
-  setMotor(articulo: Imotor) {
-    let ref = this._db.database.ref("articulos/motor");
-    let res = ref.push(articulo);
-    console.log("he recibido de motor: " + res.key);
-  }
-  setInmobiliaria(articulo: Iinmobiliaria) {
-    let ref = this._db.database.ref("articulos/inmobiliaria");
-    let res = ref.push(articulo);
-    console.log("he recibido de inmobiliaria: " + res.key);
-  }
-  setTecnologia(articulo: Itecnologia) {
-    let ref = this._db.database.ref("articulos/tecnologia");
-    let res = ref.push(articulo);
-    console.log("he recibido de tecnologia: " + res.key);
-  }
+    /*
+    getArticuloName(name:string):(Iarticulo){
+      return this.articulos.find(x=>x.nombre === name);
+    }*/
+
+    setMotor(articulo: Imotor) {
+        let ref = this._db.database.ref('articulos/motor');
+        ref.push(articulo);
+        // console.log("he recibido de motor: " + res.key);
+    }
+
+    setInmobiliaria(articulo: Iinmobiliaria) {
+        let ref = this._db.database.ref('articulos/inmobiliaria');
+        ref.push(articulo);
+        // console.log("he recibido de inmobiliaria: " + res.key);
+    }
+
+    setTecnologia(articulo: Itecnologia) {
+        let ref = this._db.database.ref('articulos/tecnologia');
+        ref.push(articulo);
+        // console.log("he recibido de tecnologia: " + res.key);
+    }
 
 }

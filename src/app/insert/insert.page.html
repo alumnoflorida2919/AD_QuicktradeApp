@@ -11,7 +11,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-input placeholder="Nombre" [(ngModel)]="nombre"></ion-input>
+  <ion-input placeholder="nombre" [(ngModel)]="nombre"></ion-input>
   <ion-textarea placeholder="Descripcion" [(ngModel)]="descripcion"></ion-textarea>
   <ion-input placeholder="Precio" [(ngModel)]="precio"></ion-input>
   <h2>Categorias</h2>
@@ -35,7 +35,7 @@
   <div *ngIf="oculto1==true">
     <ion-item>
       <ion-label>Vehiculo</ion-label>
-      <ion-select interface="popover" [(ngModel]="stateMotor" (ionChange)="selectMotor(stateMotor)">
+      <ion-select value="coche" [(ngModel)]="stateMotor">
         <ion-select-option value="coche">Coche</ion-select-option>
         <ion-select-option value="moto">Moto</ion-select-option>
       </ion-select>
@@ -46,12 +46,12 @@
       <ion-button expand="block" (click)="insertarMotor()">Insertar</ion-button>
     </section>
     <ion-card *ngFor="let item of articulos">
-      <IonLabel>Articulo: {{item.nombre}}</IonLabel><br>
-      <IonLabel>Descripcion: {{item.descripcion}}</IonLabel><br>
-      <IonLabel>Precio: {{item.precio}} €</IonLabel><br>
-      <IonLabel>Vehiculo: {{item.vehiculo}}</IonLabel><br>
-      <IonLabel>Kilometros:{{item.kilometros}}</IonLabel><br>
-      <IonLabel>Anyos:{{item.anyos}}</IonLabel><br>
+      <ion-label>Articulo: {{item.nombre}}</ion-label><br>
+      <ion-label>Descripcion: {{item.descripcion}}</ion-label><br>
+      <ion-label>Precio: {{item.precio}} €</ion-label><br>
+      <ion-label>Vehiculo: {{item.vehiculo}}</ion-label><br>
+      <ion-label>Kilometros:{{item.kilometros}}</ion-label><br>
+      <ion-label>Anyos:{{item.anyos}}</ion-label><br>
     </ion-card>
   </div>
 
@@ -62,18 +62,18 @@
       <ion-button expand="block" (click)="insertarInmobiliara()">Insertar</ion-button>
     </section>
     <ion-card *ngFor="let item of articulos">
-      <IonLabel>Articulo: {{item.nombre}}</IonLabel><br>
-      <IonLabel>Descripcion: {{item.descripcion}}</IonLabel><br>
-      <IonLabel>Precio: {{item.precio}} €</IonLabel><br>
-      <IonLabel>Numero de habitaciones: {{item.numeroHabitaciones}}</IonLabel><br>
-      <IonLabel>Localidad :{{item.localidad}}</IonLabel><br>
+      <ion-label>Articulo: {{item.nombre}}</ion-label><br>
+      <ion-label>Descripcion: {{item.descripcion}}</ion-label><br>
+      <ion-label>Precio: {{item.precio}} €</ion-label><br>
+      <ion-label>Numero de habitaciones: {{item.numeroHabitaciones}}</ion-label><br>
+      <ion-label>Localidad :{{item.localidad}}</ion-label><br>
     </ion-card>
   </div>
 
   <div>
     <ion-item *ngIf="oculto3==true">
       <ion-label>Estado</ion-label>
-      <ion-select interface="popover" [(ngModel]="stateEstado">
+      <ion-select value="perfecto" [(ngModel)]="stateEstado">
         <ion-select-option value="perfecto">Perfecto estado</ion-select-option>
         <ion-select-option value="usado">Usado</ion-select-option>
       </ion-select>
@@ -81,10 +81,10 @@
         <ion-button expand="block" (click)="insertarTecnologia()">Insertar</ion-button>
       </section>
       <ion-card *ngFor="let item of articulos">
-        <IonLabel>Articulo: {{item.nombre}}</IonLabel><br>
-        <IonLabel>Descripcion: {{item.descripcion}}</IonLabel><br>
-        <IonLabel>Precio: {{item.precio}} €</IonLabel><br>
-        <IonLabel>Estado: {{item.estado}}</IonLabel><br>
+        <ion-label>Articulo: {{item.nombre}}</ion-label><br>
+        <ion-label>Descripcion: {{item.descripcion}}</ion-label><br>
+        <ion-label>Precio: {{item.precio}} €</ion-label><br>
+        <ion-label>Estado: {{item.estado}}</ion-label><br>
         </ion-card>
     </ion-item>
 

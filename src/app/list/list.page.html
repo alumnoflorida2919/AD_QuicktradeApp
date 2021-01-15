@@ -5,9 +5,28 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let item of articulo">
-    <IonLabel>Articulo: {{item.nombre}}</IonLabel><br>    
-    <IonLabel>Precio: {{item.precio}} €</IonLabel><br>
+  <ion-card *ngFor="let item of motor">
+    <ion-label>Articulo: {{item.nombre}}</ion-label><br>
+    <ion-label>Precio: {{item.precio}} €</ion-label><br>
+    <ion-label>Descripcion: {{item.descripcion}} €</ion-label><br>
+    <ion-label>Años: {{item.anyos}} €</ion-label><br>
+    <ion-label>Vehiculo: {{item.vehiculo}} €</ion-label><br>
+    <ion-label>Km: {{item.kilometros}}</ion-label><br>
     <ion-button [routerLink]="['/details/',item.nombre]" routerDirection="forward" size="small" color="success">Detalle producto</ion-button>
-  </ion-card> 
+  </ion-card>
+  <ion-card *ngFor="let item of inmobiliaria">
+    <ion-label>Articulo: {{item.nombre}}</ion-label><br>
+    <ion-label>Precio: {{item.precio}} €</ion-label><br>
+    <ion-label>Descripcion: {{item.descripcion}} €</ion-label><br>
+    <ion-label>Habitaciones: {{item.numeroHabitaciones}} €</ion-label><br>
+    <ion-label>Localidad: {{item.localidad}}</ion-label><br>
+    <ion-button [routerLink]="['/details/',item.nombre]" routerDirection="forward" size="small" color="success">Detalle producto</ion-button>
+  </ion-card>
+  <ion-card *ngFor="let item of tecnologia">
+    <ion-label>Articulo: {{item.nombre}}</ion-label><br>
+    <ion-label>Precio: {{item.precio}} €</ion-label><br>
+    <ion-label>Descripcion: {{item.descripcion}} €</ion-label><br>
+    <ion-label>Estado: {{item.estado}}</ion-label><br>
+    <ion-button [routerLink]="['/details/',item.nombre]" routerDirection="forward" size="small" color="success">Detalle producto</ion-button>
+  </ion-card>
 </ion-content>
