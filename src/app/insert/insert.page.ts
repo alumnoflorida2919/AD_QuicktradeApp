@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Iarticulo } from '../interfaces';
+import { Iarticulo, Imotor, Iinmobiliaria, Itecnologia } from '../interfaces';
 import { ToastController } from '@ionic/angular';
+import { ArticuloService } from '../services/articulo.service';
 
 @Component({
   selector: 'app-insert',
@@ -8,79 +9,117 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./insert.page.scss'],
 })
 export class InsertPage implements OnInit {
-  titulo1: string="Motor";
-  titulo2: string="Inmobiliarias";
-  titulo3: string="Tecnologia";
-  titulo4: string="Hogar";
-  oculto1: boolean=false;
-  oculto2: boolean=false;
-  oculto3: boolean=false;
+  titulo1: string = "Motor";
+  titulo2: string = "Inmobiliarias";
+  titulo3: string = "Tecnologia";
+  titulo4: string = "Hogar";
+  oculto1: boolean = false;
+  oculto2: boolean = false;
+  oculto3: boolean = false;
   nombre: string;
   descripcion: string;
   precio: number;
-  
-  cambiar_oculto1(){
-    this.oculto1=true;
-    this.oculto2=false;
-    this.oculto3=false;
-  }
-  cambiar_oculto2(){
-    this.oculto1=false;
-    this.oculto2=true;
-    this.oculto3=false;
-  }
-  cambiar_oculto3(){
-    this.oculto1=false;
-    this.oculto2=false;
-    this.oculto3=true;
-  }
-  cambiar_oculto4(){
-    this.oculto1=false;
-    this.oculto2=false;
-    this.oculto3=false;
-  }
+  stateMotor: string;
+  kilometros: number;
+  anyos: number;
+  numeroHab: number;
+  localidad: string;
+  stateEstado: string;
+  // coche: boolean;
+  // moto: boolean;
+  // vehiculo: string;
 
-  articulos: Iarticulo[]=[
+  cambiar_oculto1() {
+    this.oculto1 = true;
+    this.oculto2 = false;
+    this.oculto3 = false;
+  }
+  cambiar_oculto2() {
+    this.oculto1 = false;
+    this.oculto2 = true;
+    this.oculto3 = false;
+  }
+  cambiar_oculto3() {
+    this.oculto1 = false;
+    this.oculto2 = false;
+    this.oculto3 = true;
+  }
+  cambiar_oculto4() {
+    this.oculto1 = false;
+    this.oculto2 = false;
+    this.oculto3 = false;
+  }
+  // selectMotor(stateMotor) {
+  //   if (stateMotor == "coche") {
+  //     this.vehiculo == "coche";
+  //   }
+  //   if (stateMotor == "moto") {
+  //     this.vehiculo == "moto";
+  //   }
+  // }
+  articulos: (Iarticulo | Imotor | Iinmobiliaria | Itecnologia)[] = [
     {
-      "nombre":"camion",
-      "descripcion":"vehiculo 4 ruedas",
+      "nombre": "camion",
+      "descripcion": "vehiculo 4 ruedas",
       "precio": 12000
     },
     {
-      "nombre":"chalet",
-      "descripcion":"casa en parcela",
+      "nombre": "chalet",
+      "descripcion": "casa en parcela",
       "precio": 280000
     },
 
   ];
 
-  constructor(private _toastCtrl: ToastController){}
+  constructor(private _toastCtrl: ToastController, private _articuloService: ArticuloService) { }
 
   async presentToast() {
     const toast = await this._toastCtrl.create({
       message: 'Se ha insertado el articulo correctamente.',
       duration: 2000,
-      position:'bottom'
+      position: 'bottom'
     });
     toast.present();
   }
 
-  insertar(){
-    let articulo : Iarticulo={
-      "nombre":this.nombre,
-      "descripcion":this.descripcion,
-      "precio": this.precio
+  insertarMotor() {
+    let motor: Imotor = {
+      "nombre": this.nombre,
+      "descripcion": this.descripcion,
+      "precio": this.precio,
+      "vehiculo": 'true',//this.stateMotor
+      "kilometros": this.kilometros,
+      "anyos": this.anyos
     };
-    this.articulos.push(articulo);
-    /*this.articulos.push({
-      "nombre":this.nombre,
-      "descripcion":this.descripcion,
-      "precio": this.precio,      
-    })*/
+    // this.articulos.push(motor);
+    this._articuloService.setMotor(motor);
     this.presentToast();
   }
-
-  ngOnInit() {
+  insertarInmobiliara() {
+    let inmobiliaria: Iinmobiliaria = {
+      "nombre": this.nombre,
+      "descripcion": this.descripcion,
+      "precio": this.precio,
+      "numeroHabitaciones": this.numeroHab,
+      "localidad": this.localidad
+    };
+    this._articuloService.setInmobiliaria(inmobiliaria);
+    this.presentToast();
   }
+  insertarTecnologia() {
+    let tecnologia: Itecnologia = {
+      "nombre": this.nombre,
+      "descripcion": this.descripcion,
+      "precio": this.precio,
+      "estado": 'true'//this.stateEstado
+    };
+    this._articuloService.setTecnologia(tecnologia);
+    this.presentToast();
+  }
+  ngOnInit() {
+
+  };
 
 }
+
+

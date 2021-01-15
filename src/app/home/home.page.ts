@@ -61,11 +61,7 @@ export class HomePage {
       "precio": this.precio
     };
     this.articulos.push(articulo);
-    /*this.articulos.push({
-      "nombre":this.nombre,
-      "descripcion":this.descripcion,
-      "precio": this.precio,      
-    })*/
+    
     this.presentToast();
   }
 }
