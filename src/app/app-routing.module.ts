@@ -19,7 +19,7 @@ const routes: Routes = [
     loadChildren: () => import('./list/list.module').then( m => m.ListPageModule)
   },
   {
-    path: 'details/:name',
+    path: 'details/:key',
     loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
   },
 

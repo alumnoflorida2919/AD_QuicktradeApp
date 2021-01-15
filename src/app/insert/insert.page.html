@@ -1,93 +1,108 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Insert</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Insert</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">Blank</ion-title>
+        </ion-toolbar>
+    </ion-header>
 
-  <ion-input placeholder="nombre" [(ngModel)]="nombre"></ion-input>
-  <ion-textarea placeholder="Descripcion" [(ngModel)]="descripcion"></ion-textarea>
-  <ion-input placeholder="Precio" [(ngModel)]="precio"></ion-input>
-  <h2>Categorias</h2>
-  <ion-chip (click)="cambiar_oculto1()">
-    <ion-icon name="car" color="dark"></ion-icon>
-    <ion-label>{{titulo1}}</ion-label>
-  </ion-chip>
-  <ion-chip (click)="cambiar_oculto2()">
-    <ion-icon name="home" color="dark"></ion-icon>
-    <ion-label>{{titulo2}}</ion-label>
-  </ion-chip>
-  <ion-chip (click)="cambiar_oculto3()">
-    <ion-icon name="settings" color="dark"></ion-icon>
-    <ion-label>{{titulo3}}</ion-label>
-  </ion-chip>
-  <ion-chip (click)="cambiar_oculto4()">
-    <ion-icon name="home" color="dark"></ion-icon>
-    <ion-label>{{titulo4}}</ion-label>
-  </ion-chip>
+    <ion-input placeholder="nombre" [(ngModel)]="nombre"></ion-input>
+    <ion-textarea placeholder="Descripcion" [(ngModel)]="descripcion"></ion-textarea>
+    <ion-input placeholder="Precio" [(ngModel)]="precio"></ion-input>
+    <h2>Categorias</h2>
+    <ion-chip (click)="cambiar_oculto1()">
+        <ion-icon name="car" color="dark"></ion-icon>
+        <ion-label>{{titulo1}}</ion-label>
+    </ion-chip>
+    <ion-chip (click)="cambiar_oculto2()">
+        <ion-icon name="home" color="dark"></ion-icon>
+        <ion-label>{{titulo2}}</ion-label>
+    </ion-chip>
+    <ion-chip (click)="cambiar_oculto3()">
+        <ion-icon name="settings" color="dark"></ion-icon>
+        <ion-label>{{titulo3}}</ion-label>
+    </ion-chip>
+    <ion-chip (click)="cambiar_oculto4()">
+        <ion-icon name="home" color="dark"></ion-icon>
+        <ion-label>{{titulo4}}</ion-label>
+    </ion-chip>
 
-  <div *ngIf="oculto1==true">
-    <ion-item>
-      <ion-label>Vehiculo</ion-label>
-      <ion-select value="coche" [(ngModel)]="stateMotor">
-        <ion-select-option value="coche">Coche</ion-select-option>
-        <ion-select-option value="moto">Moto</ion-select-option>
-      </ion-select>
-    </ion-item>
-    <ion-input placeholder="Kilometros" [(ngModel)]="kilometros"></ion-input>
-    <ion-input placeholder="Anyos" [(ngModel)]="anyos"></ion-input>
-    <section>
-      <ion-button expand="block" (click)="insertarMotor()">Insertar</ion-button>
-    </section>
-    <ion-card *ngFor="let item of articulos">
-      <ion-label>Articulo: {{item.nombre}}</ion-label><br>
-      <ion-label>Descripcion: {{item.descripcion}}</ion-label><br>
-      <ion-label>Precio: {{item.precio}} €</ion-label><br>
-      <ion-label>Vehiculo: {{item.vehiculo}}</ion-label><br>
-      <ion-label>Kilometros:{{item.kilometros}}</ion-label><br>
-      <ion-label>Anyos:{{item.anyos}}</ion-label><br>
-    </ion-card>
-  </div>
-
-  <div *ngIf="oculto2==true">
-    <ion-input placeholder="Numero habitaciones y baños" [(ngModel)]="numeroHab"></ion-input>
-    <ion-input placeholder="Localidad" [(ngModel)]="localidad"></ion-input>
-    <section>
-      <ion-button expand="block" (click)="insertarInmobiliara()">Insertar</ion-button>
-    </section>
-    <ion-card *ngFor="let item of articulos">
-      <ion-label>Articulo: {{item.nombre}}</ion-label><br>
-      <ion-label>Descripcion: {{item.descripcion}}</ion-label><br>
-      <ion-label>Precio: {{item.precio}} €</ion-label><br>
-      <ion-label>Numero de habitaciones: {{item.numeroHabitaciones}}</ion-label><br>
-      <ion-label>Localidad :{{item.localidad}}</ion-label><br>
-    </ion-card>
-  </div>
-
-  <div>
-    <ion-item *ngIf="oculto3==true">
-      <ion-label>Estado</ion-label>
-      <ion-select value="perfecto" [(ngModel)]="stateEstado">
-        <ion-select-option value="perfecto">Perfecto estado</ion-select-option>
-        <ion-select-option value="usado">Usado</ion-select-option>
-      </ion-select>
-      <section>
-        <ion-button expand="block" (click)="insertarTecnologia()">Insertar</ion-button>
-      </section>
-      <ion-card *ngFor="let item of articulos">
-        <ion-label>Articulo: {{item.nombre}}</ion-label><br>
-        <ion-label>Descripcion: {{item.descripcion}}</ion-label><br>
-        <ion-label>Precio: {{item.precio}} €</ion-label><br>
-        <ion-label>Estado: {{item.estado}}</ion-label><br>
+    <div *ngIf="oculto1==true">
+        <ion-item>
+            <ion-label>Vehiculo</ion-label>
+            <ion-select value="coche" [(ngModel)]="stateMotor">
+                <ion-select-option value="coche">Coche</ion-select-option>
+                <ion-select-option value="moto">Moto</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-input placeholder="Kilometros" [(ngModel)]="kilometros"></ion-input>
+        <ion-input placeholder="Anyos" [(ngModel)]="anyos"></ion-input>
+        <section>
+            <ion-button expand="block" (click)="insertarMotor()">Insertar</ion-button>
+        </section>
+        <ion-card *ngFor="let item of articulos">
+            <ion-label>Articulo: {{item.nombre}}</ion-label>
+            <br>
+            <ion-label>Descripcion: {{item.descripcion}}</ion-label>
+            <br>
+            <ion-label>Precio: {{item.precio}} €</ion-label>
+            <br>
+            <ion-label>Vehiculo: {{item.vehiculo}}</ion-label>
+            <br>
+            <ion-label>Kilometros:{{item.kilometros}}</ion-label>
+            <br>
+            <ion-label>Anyos:{{item.anyos}}</ion-label>
+            <br>
         </ion-card>
-    </ion-item>
+    </div>
 
-  </div>
+    <div *ngIf="oculto2==true">
+        <ion-input placeholder="Numero habitaciones y baños" [(ngModel)]="numeroHab"></ion-input>
+        <ion-input placeholder="Localidad" [(ngModel)]="localidad"></ion-input>
+        <section>
+            <ion-button expand="block" (click)="insertarInmobiliara()">Insertar</ion-button>
+        </section>
+        <ion-card *ngFor="let item of articulos">
+            <ion-label>Articulo: {{item.nombre}}</ion-label>
+            <br>
+            <ion-label>Descripcion: {{item.descripcion}}</ion-label>
+            <br>
+            <ion-label>Precio: {{item.precio}} €</ion-label>
+            <br>
+            <ion-label>Numero de habitaciones: {{item.numeroHabitaciones}}</ion-label>
+            <br>
+            <ion-label>Localidad :{{item.localidad}}</ion-label>
+            <br>
+        </ion-card>
+    </div>
+
+    <div>
+        <ion-item *ngIf="oculto3==true">
+            <ion-label>Estado</ion-label>
+            <ion-select value="perfecto" [(ngModel)]="stateEstado">
+                <ion-select-option value="perfecto">Perfecto estado</ion-select-option>
+                <ion-select-option value="usado">Usado</ion-select-option>
+            </ion-select>
+            <section>
+                <ion-button expand="block" (click)="insertarTecnologia()">Insertar</ion-button>
+            </section>
+            <ion-card *ngFor="let item of articulos">
+                <ion-label>Articulo: {{item.nombre}}</ion-label>
+                <br>
+                <ion-label>Descripcion: {{item.descripcion}}</ion-label>
+                <br>
+                <ion-label>Precio: {{item.precio}} €</ion-label>
+                <br>
+                <ion-label>Estado: {{item.estado}}</ion-label>
+                <br>
+            </ion-card>
+        </ion-item>
+
+    </div>
 
 </ion-content>

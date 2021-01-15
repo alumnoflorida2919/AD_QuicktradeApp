@@ -79,6 +79,7 @@ export class InsertPage implements OnInit {
       "nombre": this.nombre,
       "descripcion": this.descripcion,
       "precio": this.precio,
+      "key":null,
       "vehiculo": this.stateMotor,
       "kilometros": this.kilometros,
       "anyos": this.anyos
@@ -92,6 +93,7 @@ export class InsertPage implements OnInit {
       "nombre": this.nombre,
       "descripcion": this.descripcion,
       "precio": this.precio,
+      "key":null,
       "numeroHabitaciones": this.numeroHab,
       "localidad": this.localidad
     };
@@ -103,6 +105,7 @@ export class InsertPage implements OnInit {
       "nombre": this.nombre,
       "descripcion": this.descripcion,
       "precio": this.precio,
+      "key":null,
       "estado": this.stateEstado
     };
     this._articuloService.setTecnologia(tecnologia);
