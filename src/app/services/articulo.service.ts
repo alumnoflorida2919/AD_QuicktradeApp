@@ -1,11 +1,12 @@
 import { Injectable } from "@angular/core";
+import { AngularFireDatabase } from "@angular/fire/database";
 import { Iarticulo } from "../interfaces";
 
 
 @Injectable()
 
 export class ArticuloService{
-    articulos: Iarticulo[]= [
+    /*articulos: Iarticulo[]= [
         {
            
           "nombre":"camion",
@@ -19,12 +20,17 @@ export class ArticuloService{
           "precio": 280000
         },
     
-      ]
+      ]*/
+constructor(private db:AngularFireDatabase){
+  
+}
+      
 
-    getArticulos(): Iarticulo[]{
+    /*getArticulos(): Iarticulo[]{
         return this.articulos;
     }
     getArticuloName(name:string):(Iarticulo){
       return this.articulos.find(x=>x.nombre === name);
-    }
+    }*/
+
 }
