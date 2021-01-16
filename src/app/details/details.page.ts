@@ -22,6 +22,7 @@ export class DetailsPage implements OnInit {
         this.callMotor();
         this.callInmobiliaria();
         this.callTecnologia();
+        //
         this.key = this._activateRouete.snapshot.paramMap.get('key');
 
 
