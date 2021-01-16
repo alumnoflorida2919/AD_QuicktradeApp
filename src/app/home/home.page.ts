@@ -59,7 +59,11 @@ export class HomePage {
       "nombre":this.nombre,
       "descripcion":this.descripcion,
       "precio": this.precio,
+<<<<<<< HEAD
       "key": null
+=======
+      "key":null
+>>>>>>> AE10
     };
     this.articulos.push(articulo);
 
