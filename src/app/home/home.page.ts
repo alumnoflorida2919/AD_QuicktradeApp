@@ -14,11 +14,11 @@ export class HomePage {
   titulo4: string="Hogar";
   oculto1: boolean=false;
   oculto2: boolean=false;
-  oculto3: boolean=false;  
+  oculto3: boolean=false;
   nombre: string;
   descripcion: string;
   precio: number;
-  
+
   cambiar_oculto1(){
     this.oculto1=true;
     this.oculto2=false;
@@ -55,13 +55,14 @@ export class HomePage {
 
   insertar(){
     let articulo : Iarticulo={
-      
+
       "nombre":this.nombre,
       "descripcion":this.descripcion,
-      "precio": this.precio
+      "precio": this.precio,
+      "key": null
     };
     this.articulos.push(articulo);
-    
+
     this.presentToast();
   }
 }
