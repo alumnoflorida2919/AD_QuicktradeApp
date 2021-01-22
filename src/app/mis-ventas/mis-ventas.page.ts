@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Iproducto} from '../interfaces';
+import {Ienvio, Iproducto} from '../interfaces';
 import {ActivatedRoute} from '@angular/router';
 import {ArticuloService} from '../services/articulo.service';
 
@@ -10,8 +10,22 @@ import {ArticuloService} from '../services/articulo.service';
 })
 export class MisVentasPage implements OnInit {
     producto: Iproducto[] = [];
+    id: number;
+    nombre: string;
+    puntuacion: number;
+
 
     constructor(private _activatedRoute: ActivatedRoute, private _articuloService: ArticuloService) {
+    }
+
+    insertarEnvios() {
+        let envio: Ienvio = {
+            'id': 5,
+            'nombre': "cosas",
+            'puntuacion': this.puntuacion
+        };
+        this._articuloService.setEnvios(envio);
+
     }
 
     ngOnInit() {

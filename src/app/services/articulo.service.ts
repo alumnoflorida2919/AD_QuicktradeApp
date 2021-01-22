@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AngularFireDatabase} from '@angular/fire/database';
-import {Iinmobiliaria, Imotor, Itecnologia} from '../interfaces';
+import {Ienvio, Iinmobiliaria, Imotor, Iproducto, Itecnologia} from '../interfaces';
 
 
 @Injectable()
@@ -10,6 +10,8 @@ export class ArticuloService {
     motor: Imotor[] = [];
     inmobiliaria: Iinmobiliaria[] = [];
     tecnologia: Itecnologia[] = [];
+    producto: Iproducto[] = [];
+    envio: Ienvio[]=[];
     // articulos: (Iarticulo|Imotor|Iinmobiliaria|Itecnologia)[]= [
     //     {
 
@@ -28,8 +30,6 @@ export class ArticuloService {
     constructor(private _db: AngularFireDatabase) {
 
     }
-
-
 
 
     // getInmobiliariaKey() {
@@ -62,10 +62,11 @@ export class ArticuloService {
 
 
 ////
-    getProductos():firebase.default.database.Reference{
-        let ref=this._db.database.ref('articulos/mis_ventas');
+    getProductos(): firebase.default.database.Reference {
+        let ref = this._db.database.ref('articulos/mis_ventas');
         return ref;
     }
+
     getMotor(): firebase.default.database.Reference {
         let ref = this._db.database.ref('articulos/motor');
         return ref;
@@ -85,6 +86,11 @@ export class ArticuloService {
     getArticuloName(name:string):(Iarticulo){
       return this.articulos.find(x=>x.nombre === name);
     }*/
+
+    setEnvios(envio: Ienvio) {
+        let ref = this._db.database.ref('articulos/mis_envios');
+        ref.push(envio);
+    }
 
     setMotor(articulo: Imotor) {
         let ref = this._db.database.ref('articulos/motor');

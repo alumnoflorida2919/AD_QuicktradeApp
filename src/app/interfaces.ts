@@ -23,3 +23,8 @@ export interface Iproducto{
     'id':number,
     'nombre':string
 }
+export interface Ienvio{
+    'id': number,
+    'nombre':string,
+    'puntuacion':number
+}
