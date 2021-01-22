@@ -21,7 +21,11 @@ const routes: Routes = [
   {
     path: 'details/:key',
     loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
+  },  {
+    path: 'mis-ventas',
+    loadChildren: () => import('./mis-ventas/mis-ventas.module').then( m => m.MisVentasPageModule)
   },
+
 
 ];
 
