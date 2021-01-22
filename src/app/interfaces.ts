@@ -19,3 +19,7 @@ export interface Iinmobiliaria extends Iarticulo {
 export interface Itecnologia extends Iarticulo {
     'estado': string;
 }
+export interface Iproducto{
+    'id':number,
+    'nombre':string
+}

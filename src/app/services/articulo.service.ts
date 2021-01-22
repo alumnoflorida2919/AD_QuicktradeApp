@@ -62,6 +62,10 @@ export class ArticuloService {
 
 
 ////
+    getProductos():firebase.default.database.Reference{
+        let ref=this._db.database.ref('articulos/mis_ventas');
+        return ref;
+    }
     getMotor(): firebase.default.database.Reference {
         let ref = this._db.database.ref('articulos/motor');
         return ref;
