@@ -18,10 +18,13 @@ export class MisVentasPage implements OnInit {
     constructor(private _activatedRoute: ActivatedRoute, private _articuloService: ArticuloService) {
     }
 
-    insertarEnvios() {
+    insertarEnvios(nombre, id) {
+        console.log("nombre:" +nombre+id);
+
+
         let envio: Ienvio = {
-            'id': 5,
-            'nombre': "cosas",
+            'nombre': nombre,
+            'id': id,
             'puntuacion': this.puntuacion
         };
         this._articuloService.setEnvios(envio);

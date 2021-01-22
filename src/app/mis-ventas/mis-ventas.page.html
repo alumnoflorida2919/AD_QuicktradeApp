@@ -10,6 +10,6 @@
         <br>
         <ion-label>Nombre: {{item.nombre}}</ion-label>
         <ion-input placeholder="escribir puntuacion del 1 al 5" [(ngModel)]="puntuacion"></ion-input>
-        <ion-button (click)="insertarEnvios()">Enviado</ion-button>
+        <ion-button (click)="insertarEnvios(item.nombre, item.id)">Enviado</ion-button>
     </ion-card>
 </ion-content>
