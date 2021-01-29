@@ -32,20 +32,20 @@
 
   <div *ngIf="oculto1==true">
     <ion-card *ngFor="let item of motor">
-      <ion-label>Articulo: </ion-label>
+      <ion-label>Articulo:{{item.nombre}} </ion-label>
       <br>
-      <ion-label>Descripcion: </ion-label>
+      <ion-label>Descripcion: {{item.descripcion}}</ion-label>
       <br>
-      <ion-label>Precio: </ion-label>
+      <ion-label>Precio: {{item.precio}}</ion-label>
       <br>
-      <ion-label>Vehiculo: </ion-label>
+      <ion-label>Vehiculo: {{item.vehiculo}}</ion-label>
       <br>
-      <ion-label>Kilometros:</ion-label>
+      <ion-label>Kilometros: {{item.kilometros}}</ion-label>
       <br>
-      <ion-label>Anyos:</ion-label>
+      <ion-label>Anyos: {{item.anyos}}</ion-label>
       <br>
       <ion-button size="large" color="warning" (click)="insertarMotor()">Modificar</ion-button>
-      <ion-button size="large" color="danger" (click)="insertarMotor()">Eliminar</ion-button>
+      <ion-button size="large" color="danger" (click)="deleteMotor(item.nombre)">Eliminar</ion-button>
     </ion-card>
   </div>
 
@@ -62,7 +62,7 @@
       <ion-label>Localidad :{{item.localidad}}</ion-label>
       <br>
       <ion-button size="large" color="warning" (click)="insertarInmobiliara()">Modificar</ion-button>
-      <ion-button size="large" color="danger" (click)="insertarInmobiliara()">Eliminar</ion-button>
+      <ion-button size="large" color="danger" (click)="deleteInmobiliara(item.nombre)">Eliminar</ion-button>
     </ion-card>
   </div>
 
@@ -77,7 +77,7 @@
         <ion-label>Estado: {{item.estado}}</ion-label>
         <br>
         <ion-button size="large" color="warning" (click)="insertarInmobiliara()">Modificar</ion-button>
-        <ion-button size="large" color="danger" (click)="insertarInmobiliara()">Insertar</ion-button>
+        <ion-button size="large" color="danger" (click)="deleteTecnologia(item.nombre)">Eliminar</ion-button>
       </ion-card>
     </div>
 
