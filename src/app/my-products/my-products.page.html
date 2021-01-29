@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>myProducts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <h2>Filtros</h2>
+  <ion-chip (click)="cambiar_oculto1()">
+    <ion-icon name="car" color="dark"></ion-icon>
+    <ion-label>Motor</ion-label>
+  </ion-chip>
+  <ion-chip (click)="cambiar_oculto2()">
+    <ion-icon name="home" color="dark"></ion-icon>
+    <ion-label>Inmobiliarias</ion-label>
+  </ion-chip>
+  <ion-chip (click)="cambiar_oculto3()">
+    <ion-icon name="settings" color="dark"></ion-icon>
+    <ion-label>Tecnologia</ion-label>
+  </ion-chip>
+  <ion-chip (click)="cambiar_oculto4()">
+    <ion-icon name="home" color="dark"></ion-icon>
+    <ion-label>Hogar</ion-label>
+  </ion-chip>
+
+  <div *ngIf="oculto1==true">
+    <ion-card *ngFor="let item of motor">
+      <ion-label>Articulo: </ion-label>
+      <br>
+      <ion-label>Descripcion: </ion-label>
+      <br>
+      <ion-label>Precio: </ion-label>
+      <br>
+      <ion-label>Vehiculo: </ion-label>
+      <br>
+      <ion-label>Kilometros:</ion-label>
+      <br>
+      <ion-label>Anyos:</ion-label>
+      <br>
+      <ion-button size="large" color="warning" (click)="insertarMotor()">Modificar</ion-button>
+      <ion-button size="large" color="danger" (click)="insertarMotor()">Eliminar</ion-button>
+    </ion-card>
+  </div>
+
+  <div *ngIf="oculto2==true">
+    <ion-card *ngFor="let item of inmobiliaria">
+      <ion-label>Articulo: {{item.nombre}}</ion-label>
+      <br>
+      <ion-label>Descripcion: {{item.descripcion}}</ion-label>
+      <br>
+      <ion-label>Precio: {{item.precio}} €</ion-label>
+      <br>
+      <ion-label>Numero de habitaciones: {{item.numeroHabitaciones}}</ion-label>
+      <br>
+      <ion-label>Localidad :{{item.localidad}}</ion-label>
+      <br>
+      <ion-button size="large" color="warning" (click)="insertarInmobiliara()">Modificar</ion-button>
+      <ion-button size="large" color="danger" (click)="insertarInmobiliara()">Eliminar</ion-button>
+    </ion-card>
+  </div>
+
+    <div *ngIf="oculto3==true">
+      <ion-card *ngFor="let item of tecnologia">
+        <ion-label>Articulo: {{item.nombre}}</ion-label>
+        <br>
+        <ion-label>Descripcion: {{item.descripcion}}</ion-label>
+        <br>
+        <ion-label>Precio: {{item.precio}} €</ion-label>
+        <br>
+        <ion-label>Estado: {{item.estado}}</ion-label>
+        <br>
+        <ion-button size="large" color="warning" (click)="insertarInmobiliara()">Modificar</ion-button>
+        <ion-button size="large" color="danger" (click)="insertarInmobiliara()">Insertar</ion-button>
+      </ion-card>
+    </div>
+
+
+</ion-content>
