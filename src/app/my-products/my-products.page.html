@@ -44,7 +44,7 @@
       <br>
       <ion-label>Anyos: {{item.anyos}}</ion-label>
       <br>
-      <ion-button size="large" color="warning" (click)="insertarMotor()">Modificar</ion-button>
+      <ion-button size="large" color="warning" [routerLink]="['/modify-article/',item.nombre]">Modificar</ion-button>
       <ion-button size="large" color="danger" (click)="deleteMotor(item.nombre)">Eliminar</ion-button>
     </ion-card>
   </div>
@@ -61,7 +61,7 @@
       <br>
       <ion-label>Localidad :{{item.localidad}}</ion-label>
       <br>
-      <ion-button size="large" color="warning" (click)="insertarInmobiliara()">Modificar</ion-button>
+      <ion-button size="large" color="warning" [routerLink]="['/modify-article/',item.nombre]">Modificar</ion-button>
       <ion-button size="large" color="danger" (click)="deleteInmobiliara(item.nombre)">Eliminar</ion-button>
     </ion-card>
   </div>
@@ -76,10 +76,8 @@
         <br>
         <ion-label>Estado: {{item.estado}}</ion-label>
         <br>
-        <ion-button size="large" color="warning" (click)="insertarInmobiliara()">Modificar</ion-button>
+        <ion-button size="large" color="warning" [routerLink]="['/modify-article/',item.nombre]">Modificar</ion-button>
         <ion-button size="large" color="danger" (click)="deleteTecnologia(item.nombre)">Eliminar</ion-button>
       </ion-card>
     </div>
-
-
 </ion-content>

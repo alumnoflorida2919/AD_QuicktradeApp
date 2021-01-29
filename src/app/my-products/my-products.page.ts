@@ -48,7 +48,7 @@ export class MyProductsPage implements OnInit {
 
     async presentToast() {
         const toast = await this._toastCtrl.create({
-            message: 'Se ha eliminadp el articulo correctamente.',
+            message: 'Se ha eliminado el articulo correctamente.',
             duration: 2000,
             position: 'bottom'
         });

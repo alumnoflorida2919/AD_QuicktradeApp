@@ -25,9 +25,14 @@ const routes: Routes = [
   {
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
-  },  {
+  },
+  {
     path: 'my-products',
     loadChildren: () => import('./my-products/my-products.module').then( m => m.MyProductsPageModule)
+  },
+  {
+    path: 'modify-article/:name',
+    loadChildren: () => import('./modify-article/modify-article.module').then( m => m.ModifyArticlePageModule)
   },
 
 
