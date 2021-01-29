@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Iarticulo, Imotor, Iinmobiliaria, Itecnologia} from '../interfaces';
+import {Iarticulo, Iinmobiliaria, Imotor, Itecnologia} from '../interfaces';
 import {ArticuloService} from '../services/articulo.service';
 import {AngularFireDatabase} from '@angular/fire/database';
 
@@ -22,11 +22,8 @@ export class DetailsPage implements OnInit {
         this.callMotor();
         this.callInmobiliaria();
         this.callTecnologia();
-        //
+
         this.key = this._activateRouete.snapshot.paramMap.get('key');
-
-
-        //this.articulo = this._articuloService.getArticuloName(this.name);
     }
 
     callMotor() {
@@ -40,6 +37,7 @@ export class DetailsPage implements OnInit {
             );
         });
     }
+
     callInmobiliaria() {
         let ref = this._db.database.ref('articulos/inmobiliaria');
         ref.once('value', snapshot => {
@@ -51,6 +49,7 @@ export class DetailsPage implements OnInit {
             );
         });
     }
+
     callTecnologia() {
         let ref = this._db.database.ref('articulos/tecnologia');
         ref.once('value', snapshot => {

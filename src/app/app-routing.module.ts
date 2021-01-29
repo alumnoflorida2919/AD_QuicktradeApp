@@ -11,7 +11,7 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },   {
-    path: 'insert',
+    path: 'insert/:name',
     loadChildren: () => import('./insert/insert.module').then( m => m.InsertPageModule)
   },
   {
@@ -22,6 +22,11 @@ const routes: Routes = [
     path: 'details/:key',
     loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
   },
+  {
+    path: 'menu',
+    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
+  },
+
 
 ];
 

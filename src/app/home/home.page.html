@@ -8,8 +8,8 @@
 
 <ion-content [fullscreen]="true">
   <section>
-    <ion-button routerLink="/insert" routerDirection="forward" size="large" color="danger">Insertar producto
-    </ion-button>
-    <ion-button routerLink="/list" routerDirection="forward" size="large" color="warning">Listado producto</ion-button>
+    <ion-input placeholder="nombre" [(ngModel)]="nombre"></ion-input>
+    <ion-input placeholder="password"></ion-input>
+    <ion-button routerLink="/menu" routerDirection="forward" size="large" color="warning">Login</ion-button>
   </section>
 </ion-content>

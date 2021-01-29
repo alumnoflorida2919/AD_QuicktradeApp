@@ -3,6 +3,7 @@ export interface Iarticulo {
     'descripcion': string;
     'precio': number;
     'key': string;
+    'id_propietario':number;
 }
 
 export interface Imotor extends Iarticulo {

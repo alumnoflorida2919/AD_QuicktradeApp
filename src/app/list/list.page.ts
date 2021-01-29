@@ -42,28 +42,6 @@ export class ListPage implements OnInit {
             });
         });
     }
-
-    // console.log("motor: " +this.motor);
-    // this._articuloService.getMotor().once('value', snapshot => {
-    //     snapshot.forEach(child => {
-    //         console.log("child: "+child.val());
-    //         let value = child.val();
-    //         this.motor.push(value);
-    //     });
-    // });
-    //
-    // this._articuloService.getInmobiliaria().once('value', snapshotChanges => {
-    //     snapshotChanges.forEach(child => {
-    //         let value = child.val();
-    //         this.inmobiliaria.push(value);
-    //     });
-    // });
-    // this._articuloService.getTecnologia().once('value', snapshotChanges => {
-    //     snapshotChanges.forEach(child => {
-    //         let value = child.val();
-    //         this.tecnologia.push(value);
-    //     });
-    // });
 }
 
 
