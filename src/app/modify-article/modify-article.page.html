@@ -4,29 +4,34 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="articulos">
-  <ion-card>
-<!--    <ion-label>Articulo: {{articulos.nombre}}</ion-label>-->
-<!--    <br>-->
-<!--    <ion-label>Detalle: {{articulos.descripcion}}</ion-label>-->
-<!--    <br>-->
-<!--    <ion-label>Precio: {{articulos.precio}} €</ion-label>-->
-<!--    <br>-->
-<!--    <h3>Detalles motor</h3>-->
-<!--    <ion-label>Vehiculo: {{articulos.vehiculo}}</ion-label>-->
-<!--    <br>-->
-<!--    <ion-label>Km: {{articulos.kilometros}}</ion-label>-->
-<!--    <br>-->
-<!--    <ion-label>Años: {{articulos.anyos}}</ion-label>-->
-<!--    <br>-->
-<!--    <h3>Detalles inmobiliaria</h3>-->
-<!--    <ion-label>Numero de habitaciones: {{articulos.numeroHabitaciones}}</ion-label>-->
-<!--    <br>-->
-<!--    <ion-label>Localidad: {{articulos.localidad}}</ion-label>-->
-<!--    <br>-->
-<!--    <h3>Detalles tecnologia</h3>-->
-<!--    <ion-label>Estado: {{articulos.estado}}</ion-label>-->
-<!--    <br>-->
-  </ion-card>
-</ion-content>
+<ion-content [fullscreen]="true">
+  <h2>Inserta estos datos obligatorios</h2>
+  <ion-input color="white" placeholder="nombre" [(ngModel)]="nombre"></ion-input>
+  <ion-textarea placeholder="Descripcion" [(ngModel)]="descripcion"></ion-textarea>
+  <ion-input placeholder="Precio" [(ngModel)]="precio"></ion-input>
 
+  <h2>Rellena estos campos si modificas motor</h2>
+  <ion-item>
+    <ion-label>Vehiculo</ion-label>
+    <ion-select value="coche" [(ngModel)]="stateMotor">
+      <ion-select-option value="coche">Coche</ion-select-option>
+      <ion-select-option value="moto">Moto</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-input placeholder="Kilometros" [(ngModel)]="kilometros"></ion-input>
+  <ion-input placeholder="Anyos" [(ngModel)]="anyos"></ion-input>
+  <ion-button expand="block" (click)="editMotor()">Editar</ion-button>
+
+  <h2>Rellena estos campos si modificas inmobiliaria</h2>
+  <ion-input placeholder="Numero habitaciones y baños" [(ngModel)]="numeroHab"></ion-input>
+  <ion-input placeholder="Localidad" [(ngModel)]="localidad"></ion-input>
+  <ion-button expand="block" (click)="editInmobiliaria()">Editar</ion-button>
+
+  <h2>Rellena estos campos si modificas tecnologia</h2>
+  <ion-label>Estado</ion-label>
+  <ion-select value="perfecto" [(ngModel)]="stateEstado">
+    <ion-select-option value="perfecto">Perfecto estado</ion-select-option>
+    <ion-select-option value="usado">Usado</ion-select-option>
+  </ion-select>
+  <ion-button expand="block" (click)="editTecnologia()">Editar</ion-button>
+</ion-content>
