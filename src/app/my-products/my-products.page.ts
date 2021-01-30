@@ -3,6 +3,7 @@ import {Iarticulo, Iinmobiliaria, Imotor, Itecnologia} from '../interfaces';
 import {ArticuloService} from '../services/articulo.service';
 import {AngularFireDatabase} from '@angular/fire/database';
 import {ToastController} from '@ionic/angular';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-my-products',
@@ -18,6 +19,8 @@ export class MyProductsPage implements OnInit {
     oculto1: boolean = false;
     oculto2: boolean = false;
     oculto3: boolean = false;
+    property: string;
+    id:number;
 
     cambiar_oculto1() {
         this.oculto1 = true;
@@ -43,7 +46,7 @@ export class MyProductsPage implements OnInit {
         this.oculto3 = false;
     }
 
-    constructor(private _articuloService: ArticuloService, private _db: AngularFireDatabase, private _toastCtrl: ToastController) {
+    constructor(private _articuloService: ArticuloService, private _db: AngularFireDatabase, private _toastCtrl: ToastController, private _activatedRoute: ActivatedRoute) {
     }
 
     async presentToast() {
@@ -56,27 +59,53 @@ export class MyProductsPage implements OnInit {
     }
 
     ngOnInit() {
-        this._articuloService.getMotor().once('value', snapshot => {
-            snapshot.forEach(child => {
-                let value = child.val();
-                value.key = child.key;
+        this.property = this._activatedRoute.snapshot.paramMap.get('name');
+        this.giveMeIdUser();
+    }
+
+    private giveMeIdUser() {
+        let ref = this._db.database.ref('usuarios');
+        ref.orderByChild('propietario').equalTo(this.property)
+            .once('value', snapshot => {
+                snapshot.forEach(child => {
+                        this.id = child.val().id;
+                        let id=this.id
+                        this.giveMeAllMotor(id);
+                        this.giveMeAllInmobiliaria(id);
+                        this.giveMeAllTecnology(id);
+                    }
+                );
+            });
+    }
+    giveMeAllMotor(id){
+        let ref=this._db.database.ref('articulos/motor');
+        ref.orderByChild('id_propietario').equalTo(id).once('value',snapshot=>{
+            snapshot.forEach(child=>{
+                let value=child.val();
                 this.motor.push(value);
-            });
-        });
-        this._articuloService.getInmobiliaria().once('value', snapshot => {
-            snapshot.forEach(child => {
-                let value = child.val();
-                value.key = child.key;
+            })
+
+        })
+    }
+    giveMeAllInmobiliaria(id){
+        let ref=this._db.database.ref('articulos/inmobiliaria');
+        ref.orderByChild('id_propietario').equalTo(id).once('value',snapshot=>{
+            snapshot.forEach(child=>{
+                let value=child.val();
                 this.inmobiliaria.push(value);
-            });
-        });
-        this._articuloService.getTecnologia().once('value', snapshot => {
-            snapshot.forEach(child => {
-                let value = child.val();
-                value.key = child.key;
+            })
+
+        })
+    }
+    giveMeAllTecnology(id){
+        let ref=this._db.database.ref('articulos/tecnologia');
+        ref.orderByChild('id_propietario').equalTo(id).once('value',snapshot=>{
+            snapshot.forEach(child=>{
+                let value=child.val();
                 this.tecnologia.push(value);
-            });
-        });
+            })
+
+        })
     }
 
     deleteMotor(nombre: string) {
